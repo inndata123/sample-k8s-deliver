@@ -1,3 +1,21 @@
+---
+apiVersion: v1
+kind: Services
+metadata:
+    name: nginx-service-dm
+    labels:
+       app: nginx
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http-port
+      protocol: Tcp
+      port: 4523
+      targetPort: 80
+  selector:
+     app: sample-daemonset
+    
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
