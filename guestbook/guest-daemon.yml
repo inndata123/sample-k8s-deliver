@@ -1,29 +1,28 @@
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: app-daemon
   labels:
-   app: myapp
+    app: myapp
 spec:
   selector:
-      matchLabels:
-          app: myapp
+    matchLabels:
+      app: myapp
   template:
-      matadata:
-        labels:
-           app: myapp
-      spec:
-        containers:
-           - name: myapp
-             image: nginx
-             ports:
-              - containerPort: 80
-             resources:
-                requests:
-                   memory: "200Mi"
-                   cpu: "150m"
-                limits:
-                   memory: "300Mi"
-                   cpu: "200m"
-
-             
+    matadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: myapp
+          image: nginx
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 150m
+            limits:
+              memory: 300Mi
+              cpu: 200m
